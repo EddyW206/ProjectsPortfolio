@@ -1,2 +1,2 @@
-# projectsportfolio
-Projects
+# Eddy Wong's Project Portfolio
+
