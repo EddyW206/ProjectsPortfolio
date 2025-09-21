@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Research Project: UW IMA Facility</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- D3.js for data visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Custom font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the chart tooltips */
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            height: auto;
+            padding: 8px;
+            font-size: 12px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <nav class="container mx-auto px-6 py-4">
+            <a href="#" class="text-lg font-semibold text-gray-700 hover:text-blue-600 transition">&larr; Back to Portfolio</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 md:py-16">
+
+        <!-- Project Title and Hero Image -->
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Improving the Student Experience at the UW IMA Facility</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">A UX research project to uncover pain points and identify opportunities for enhancing the university's primary fitness center.</p>
+            <img src="images/thumbs/UW_IMA.png" 
+                 onerror="this.onerror=null;this.src='https://placehold.co/1200x600/E2E8F0/4A5568?text=Image+Not+Found';"
+                 alt="University of Washington IMA Facility" class="w-full h-auto rounded-lg shadow-lg object-cover">
+        </section>
+
+        <!-- Project Overview Section -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+            <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Role</h3>
+                <p class="text-lg font-medium text-gray-900">Sole UX Researcher</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Timeline</h3>
+                <p class="text-lg font-medium text-gray-900">4 Weeks (Academic Project)</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Methods</h3>
+                <p class="text-lg font-medium text-gray-900">Field Study, User Interviews, Surveys</p>
+            </div>
+        </section>
+
+        <!-- 1. The Problem -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">1. The Problem</h2>
+            <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <p>The University of Washington's Intramural Activities (IMA) building is a vital hub for student wellness, serving thousands daily. While popular, anecdotal evidence suggested that many students, especially newcomers, found the facility overwhelming and difficult to navigate.</p>
+                <p>My goal was to move beyond anecdotes and systematically investigate the student experience, asking: <strong class="font-semibold">"What are the primary pain points students encounter when using the IMA, and how can the experience be improved?"</strong></p>
+            </div>
+        </section>
+
+        <!-- 2. Process & Methods -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">2. My Approach</h2>
+            <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <p>To get a holistic view, I employed a mixed-methods approach to first understand user behavior in context, then dive deeper into their motivations and finally quantify the issues at scale.</p>
+                
+                <div class="mt-8 p-6 bg-white rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-2">Observational Field Study</h3>
+                    <p>I conducted a 3-hour observational study during peak hours to understand how students naturally interacted with the space, noting common paths, points of confusion, and workarounds.</p>
+                </div>
+                <div class="mt-4 p-6 bg-white rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-2">In-Depth Interviews</h3>
+                    <p>I conducted four semi-structured interviews with a mix of frequent and infrequent IMA users to explore their goals, frustrations, and feelings about the facility.</p>
+                </div>
+                <div class="mt-4 p-6 bg-white rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-2">Survey</h3>
+                    <p>Finally, I designed and distributed a survey (n=19) to validate the qualitative findings and measure the prevalence of the identified pain points across a wider student sample.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Findings & Insights -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">3. What I Discovered</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8">After synthesizing the data, three major themes emerged as key areas of friction in the student experience.</p>
+            
+            <div class="space-y-8">
+                <!-- Insight 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3">Insight 1: "Analysis Paralysis" in the Weight Room</h3>
+                    <p class="text-lg text-gray-700 mb-4">Many students, particularly those newer to fitness, felt intimidated by the crowded and complex layout of the free-weight and machine areas. This led to them either sticking to familiar cardio machines or leaving without completing their intended workout.</p>
+                    <blockquote class="border-l-4 border-blue-300 pl-4 py-2 my-4 text-gray-600 italic">
+                        "I just walk in, see how packed it is, and I don't know where anything is. It's easier to just go run on the treadmill."
+                        <cite class="block text-right not-italic mt-2">&mdash; Interview Participant, 2nd Year</cite>
+                    </blockquote>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3">Insight 2: The Search for Equipment is a Workout Itself</h3>
+                    <p class="text-lg text-gray-700 mb-4">Survey data confirmed a major frustration: finding available equipment. Students spent significant time wandering, looking for open machines or specific items like foam rollers or certain dumbbell weights.</p>
+                    <!-- Chart for survey data -->
+                    <div class="mt-6">
+                        <h4 class="text-lg font-medium text-center mb-2">Time Spent Looking for Equipment (per visit)</h4>
+                        <div id="survey-chart" class="w-full h-64 md:h-80 bg-gray-50 p-4 rounded"></div>
+                    </div>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-3">Insight 3: Underutilized Spaces and Services</h3>
+                    <p class="text-lg text-gray-700">Interviews and survey free-responses revealed that many students were unaware of less-crowded spaces like the 3rd-floor mat area or services like the free equipment orientations. This information was not easily discoverable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Recommendations & Impact -->
+        <section>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">4. Recommendations</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-8">Based on the research, I proposed three actionable recommendations to address the key pain points and improve the overall student experience.</p>
+            <ol class="list-decimal list-inside space-y-6 text-lg text-gray-700">
+                <li><strong class="font-semibold">Digital Navigation & Zone Map:</strong> Create a mobile-friendly interactive map on the IMA website. This map would show real-time crowd levels for different zones and allow users to locate specific machines or equipment types, reducing search time and anxiety.</li>
+                <li><strong class="font-semibold">Improved Physical Wayfinding:</strong> Install clear, color-coded signage throughout the facility. "Beginner-Friendly Zones" could be clearly marked to help new users feel more comfortable and confident exploring different workout areas.</li>
+                <li><strong class="font-semibold">Promotional Campaign for Underused Services:</strong> Launch a targeted awareness campaign at the start of each quarter via social media and in-facility digital screens to highlight services like equipment orientation and feature less-crowded workout spaces.</li>
+            </ol>
+        </section>
+        
+        <!-- Reflection Section -->
+        <section class="mt-16 bg-blue-50 p-8 rounded-lg">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Reflection</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">This project was a fantastic exercise in applying sociological research methods to a real-world user experience problem. It reinforced the importance of using a mixed-methods approach to not only identify *what* the problems are but *why* they are happening. If I were to do this again with more resources, I would love to conduct a diary study to track student experiences over a longer period.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p>&copy; 2025 Eddy Wong. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for the D3.js chart -->
+    <script>
+        // --- D3.js Bar Chart ---
+        // This script creates a simple bar chart to visualize your survey data.
+        // You can replace this data with your actual survey results.
+        const surveyData = [
+            { time: "< 2 min", count: 2 },
+            { time: "2-5 min", count: 6 },
+            { time: "5-10 min", count: 10 },
+            { time: "10+ min", count: 1 }
+        ];
+
+        const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+        const chartContainer = d3.select("#survey-chart");
+        
+        // Use a resize observer to make the chart responsive
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                const { width, height } = entry.contentRect;
+                drawChart(width, height);
+            }
+        });
+        
+        resizeObserver.observe(chartContainer.node());
+
+        function drawChart(width, height) {
+            chartContainer.selectAll("*").remove(); // Clear previous chart
+
+            const innerWidth = width - margin.left - margin.right;
+            const innerHeight = height - margin.top - margin.bottom;
+
+            const svg = chartContainer
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+            // X axis
+            const x = d3.scaleBand()
+                .range([0, innerWidth])
+                .domain(surveyData.map(d => d.time))
+                .padding(0.2);
+
+            svg.append("g")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .style("text-anchor", "middle");
+
+            // Y axis
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(surveyData, d => d.count) * 1.2]) // Add some padding to the top
+                .range([innerHeight, 0]);
+
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            // Tooltip
+            const tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip");
+
+            // Bars
+            svg.selectAll("mybar")
+                .data(surveyData)
+                .enter()
+                .append("rect")
+                .attr("x", d => x(d.time))
+                .attr("y", d => y(d.count))
+                .attr("width", x.bandwidth())
+                .attr("height", d => innerHeight - y(d.count))
+                .attr("fill", "#3B82F6") // A nice blue color
+                .on("mouseover", (event, d) => {
+                    tooltip.transition().duration(200).style("opacity", .9);
+                    tooltip.html(`<strong>${d.count} students</strong>`)
+                        .style("left", (event.pageX + 5) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", d => {
+                    tooltip.transition().duration(500).style("opacity", 0);
+                });
+        }
+    </script>
+
+</body>
+</html>
